@@ -1,13 +1,34 @@
 import React, { Component } from "react";
 import { sha256 } from "js-sha256";
 import "./BlockChain.css";
-import { prefixed } from "eventemitter3";
+import ModalDialog from "../../component/modalDialog/ModalDialog";
+import Button from "../../component/genericimagebutton/GenericImageButton";
 
 class Block {
-  constructor(index, time, data, previousHashCode = "") {
+  constructor(index, data, previousHashCode = "") {
+    let currrentDate = new Date();
+    let month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     this.index = index;
     this.previousHashCode = previousHashCode;
-    this.time = time;
+    this.time =
+      currrentDate.getDate() +
+      " " +
+      month[currrentDate.getMonth()] +
+      " " +
+      currrentDate.getFullYear();
     this.data = data;
     this.hash = this.getCurrentHashCode();
     this.nonce = 0;
@@ -36,15 +57,11 @@ class BlockChain extends Component {
       OpenAddBlockPopUp: false,
     };
     this.showBlockChain = this.showBlockChain.bind(this);
+    this.addBlockHandler = this.addBlockHandler.bind(this);
   }
 
   createInitialBlock = () => {
-    return new Block(
-      1,
-      new Date().getTime(),
-      { recipent: "ashish", Amount: 10 },
-      "0"
-    );
+    return new Block(1, { recipent: "Basic", Amount: 1 }, "0");
   };
 
   getCurrentBlock = () => {
@@ -90,16 +107,16 @@ class BlockChain extends Component {
             <div key={data.index}>
               <div style={{ color: "red" }}>
                 <span>
-                  index:{data.index} <br />
-                  Payload:{JSON.stringify(data.data)}
+                  index: {data.index} <br />
+                  Payload: {JSON.stringify(data.data)}
                   <br />
-                  Hash Code:{data.hash}
+                  Hash Code: {data.hash}
                   <br />
                   previous HashCode: {data.previousHashCode}
                   <br />
-                  timeStamp:{data.time}
+                  timeStamp: {data.time}
                   <br />
-                  nonce:{data.nonce}
+                  nonce: {data.nonce}
                   <br />
                 </span>
               </div>
@@ -111,27 +128,36 @@ class BlockChain extends Component {
   }
 
   addBlockHandler() {
-    let chain = this.state.chain;
-    let Length = chain.length;
-    // this.setState({
-    //   OpenAddBlockPopUp: !this.state.OpenAddBlockPopUp,
-    // });
-    chain.push(
-      new Block(
-        Number(chain[chain.length - 1].index + 1),
-        new Date().getTime(),
-        { reciever: "ashish", Amount: 100 },
-        chain.length - 1 > 0 ? chain[chain.length - 2].hash : 0
-      )
-    );
-    this.setState({ chain: chain });
+    //let chain = this.state.chain;
+    //let Length = chain.length;
+    this.setState({
+      OpenAddBlockPopUp: !this.state.OpenAddBlockPopUp,
+    });
+    // chain.push(
+    //   new Block(
+    //     Number(chain[chain.length - 1].index + 1),
+    //     new Date().getTime(),
+    //     { reciever: "ashish", Amount: 100 },
+    //     chain.length - 1 > 0 ? chain[chain.length - 2].hash : 0
+    //   )
+    // );
+    // this.setState({ chain: chain });
   }
   render() {
     return (
       <div className="blockChainWrapper">
         {this.showBlockChain()}
 
-        <button onClick={() => this.addBlockHandler()}>Add Block</button>
+        <Button
+          onButtonClickHandler={this.addBlockHandler}
+          label={"Add Block"}
+        />
+
+        <ModalDialog open={this.state.OpenAddBlockPopUp}>
+          <div>
+            <div>HI</div>
+          </div>
+        </ModalDialog>
       </div>
     );
   }

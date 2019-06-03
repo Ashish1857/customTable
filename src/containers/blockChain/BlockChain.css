@@ -1,0 +1,15 @@
+/* .zx {
+  background-color: gray;
+  height: 500px;
+  width: 1650px;
+} */
+.c-xcloseButton {
+  padding-top: 10px;
+  padding-left: 1220px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.c-xCloseButton .icn_close {
+  background-color: #f9f9f9;
+}
