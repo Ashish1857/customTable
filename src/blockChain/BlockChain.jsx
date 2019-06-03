@@ -74,6 +74,7 @@ class BlockChain extends Component {
       else return true;
     });
   };
+  //TODO
 
   componentWillMount() {
     let chain = this.state.chain;
@@ -127,7 +128,7 @@ class BlockChain extends Component {
   }
   render() {
     return (
-      <div className="zx">
+      <div className="blockChainWrapper">
         {this.showBlockChain()}
 
         <button onClick={() => this.addBlockHandler()}>Add Block</button>
