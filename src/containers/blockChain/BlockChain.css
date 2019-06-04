@@ -3,13 +3,73 @@
   height: 500px;
   width: 1650px;
 } */
-.c-xcloseButton {
-  padding-top: 10px;
-  padding-left: 1220px;
-  position: absolute;
-  cursor: pointer;
-}
 
-.c-xCloseButton .icn_close {
-  background-color: #f9f9f9;
+.block {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 200px;
+  width: 680px;
+  background-color: yellow;
+  text-align: left;
+  border: solid 1px #f9f9f9;
+  border-radius: 3px;
+  background-color: bisque;
+}
+.block span {
+  left: 30px;
+  position: relative;
+  top: 20px;
+  line-height: 1.5;
+}
+.header {
+  font-family: sans-serif;
+  font-size: 26px;
+  position: relative;
+  top: 11px;
+  color: darkgrey;
+  height: 26px;
+}
+.textboxWrapper {
+  position: relative;
+  top: 15px;
+  background-color: yellow;
+  margin: 15px;
+}
+.blockChainWrapper .c-textboxWithLabelAndWatermark {
+  float: right;
+  width: 303px;
+  position: relative;
+}
+.c-numberFormatComponent {
+  float: left;
+}
+.addOrCancelWrapper .c-genericImageButton {
+  width: 100px;
+  margin-right: 20px;
+}
+.addOrCancelWrapper {
+  position: relative;
+}
+.blockChainWrapper .c-numberFormatComponent {
+  width: 608px;
+}
+.blockChainWrapper .windowStyle {
+  margin: auto;
+}
+.blockChainWrapper
+  .c-numberFormatComponent
+  .textboxContainer
+  input[type="text"] {
+  position: relative;
+  left: -12px;
+}
+.c-genericImageButton.disabled {
+  background-color: #ffffff;
+
+  cursor: not-allowed;
+}
+.c-genericImageButton.disabled .buttonText {
+  color: gray;
+
+  font-weight: 500;
 }

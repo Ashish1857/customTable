@@ -3,9 +3,11 @@ import { sha256 } from "js-sha256";
 import "./BlockChain.css";
 import ModalDialog from "../../component/modalDialog/ModalDialog";
 import Button from "../../component/genericimagebutton/GenericImageButton";
+import TextBox from "../../component/textbox/TextboxWithLabelAndWatermark";
+import NumberFormatComponent from "../../component/numberFormatComponent/NumberFormatComponent";
 
 class Block {
-  constructor(index, data, previousHashCode = "") {
+  constructor(index, data = {}, previousHashCode = "") {
     let currrentDate = new Date();
     let month = [
       "January",
@@ -31,7 +33,6 @@ class Block {
       currrentDate.getFullYear();
     this.data = data;
     this.hash = this.getCurrentHashCode();
-    this.nonce = 0;
   }
 
   getCurrentHashCode = () => {
@@ -55,9 +56,19 @@ class BlockChain extends Component {
     this.state = {
       chain: [],
       OpenAddBlockPopUp: false,
+      sender: "",
+      receiver: "",
+      amount: "",
+      formatedAmount: "",
+      buttonDisabled: true,
+      isChainvalid:true
     };
     this.showBlockChain = this.showBlockChain.bind(this);
+    this.openOrCloseAddBlockModal = this.openOrCloseAddBlockModal.bind(this);
     this.addBlockHandler = this.addBlockHandler.bind(this);
+    this.amountOnchange = this.amountOnchange.bind(this);
+    this.senderOnchange = this.senderOnchange.bind(this);
+    this.receiverOnchange = this.receiverOnchange.bind(this);
   }
 
   createInitialBlock = () => {
@@ -87,8 +98,14 @@ class BlockChain extends Component {
         (block.hash !== block.getCurrentHashCode() ||
           block.previousHashCode !== chain[index - 1].hash)
       )
-        return false;
-      else return true;
+        this.setState({
+          isChainvalid: false,
+        });
+      else {
+        this.setState({
+          isChainvalid: true,
+        });
+      }
     });
   };
   //TODO
@@ -105,10 +122,10 @@ class BlockChain extends Component {
         {chain.length > 0 &&
           chain.map(data => (
             <div key={data.index}>
-              <div style={{ color: "red" }}>
+              <div className="block">
                 <span>
                   index: {data.index} <br />
-                  Payload: {JSON.stringify(data.data)}
+                  Transaction: {JSON.stringify(data.data)}
                   <br />
                   Hash Code: {data.hash}
                   <br />
@@ -116,46 +133,137 @@ class BlockChain extends Component {
                   <br />
                   timeStamp: {data.time}
                   <br />
-                  nonce: {data.nonce}
-                  <br />
                 </span>
               </div>
-              <span>{"---------"}</span>
             </div>
           ))}
       </div>
     );
   }
 
-  addBlockHandler() {
-    //let chain = this.state.chain;
-    //let Length = chain.length;
+  openOrCloseAddBlockModal() {
     this.setState({
       OpenAddBlockPopUp: !this.state.OpenAddBlockPopUp,
     });
-    // chain.push(
-    //   new Block(
-    //     Number(chain[chain.length - 1].index + 1),
-    //     new Date().getTime(),
-    //     { reciever: "ashish", Amount: 100 },
-    //     chain.length - 1 > 0 ? chain[chain.length - 2].hash : 0
-    //   )
-    // );
-    // this.setState({ chain: chain });
+    this.setState({
+      sender: "",
+      receiver: "",
+      formatedAmount: "",
+      buttonDisabled: true,
+    });
+  }
+
+  addBlockHandler() {
+    let chain = this.state.chain;
+    let transaction = {};
+    transaction = {
+      sender: this.state.sender,
+      receiver: this.state.receiver,
+      amount: this.state.formatedAmount,
+    };
+
+    this.addBlock(
+      new Block(
+        Number(chain[chain.length - 1].index + 1),
+        transaction,
+        chain.length - 1 > 0 ? chain[chain.length - 2].hash : 0
+      )
+    );
+
+    this.openOrCloseAddBlockModal();
+  }
+  receiverOnchange(e) {
+    this.setState({
+      receiver: e.target.value,
+    });
+  }
+  senderOnchange(e) {
+    this.setState({
+      sender: e.target.value,
+    });
+  }
+  amountOnchange(value) {
+    this.setState({
+      formatedAmount: value.formattedValue,
+      amount: value.floatValue,
+    });
+  }
+
+  enableAddButton = () => {
+    let sender = this.state.sender;
+    let receiver = this.state.receiver;
+    let amount = this.state.formatedAmount;
+
+    if (sender !== "" && receiver !== "" && amount !== "" && amount !== null)
+      this.setState({
+        buttonDisabled: false,
+      });
+    else {
+      this.setState({
+        buttonDisabled: true,
+      });
+    }
+  };
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.sender !== this.state.sender ||
+      prevState.receiver !== this.state.receiver ||
+      prevState.formatedAmount !== this.state.formatedAmount
+    )
+      this.enableAddButton();
+
+    if (prevState.chain !== this.state.chain) {
+      this.validateChain();
+    }
   }
   render() {
     return (
       <div className="blockChainWrapper">
-        {this.showBlockChain()}
+        <div className="blockWrapper">{this.showBlockChain()}</div>
 
         <Button
-          onButtonClickHandler={this.addBlockHandler}
+          onButtonClickHandler={this.openOrCloseAddBlockModal}
           label={"Add Block"}
         />
+        <span>
+          * Chain is Valid? {this.state.isChainvalid ? "true" : "false"}
+        </span>
 
         <ModalDialog open={this.state.OpenAddBlockPopUp}>
           <div>
-            <div>HI</div>
+            <div style={{ height: "223px" }}>
+              <span className="header"> {"Add Block"}</span>
+              <div className="textboxWrapper">
+                <TextBox
+                  header={"Sender"}
+                  onChange={this.senderOnchange}
+                  value={this.state.sender}
+                />
+                <TextBox
+                  header={"Receiver"}
+                  onChange={this.receiverOnchange}
+                  value={this.state.receiver}
+                />
+                <NumberFormatComponent
+                  thousandSeparator={","}
+                  header={"Amount"}
+                  onValueChange={this.amountOnchange}
+                  value={this.state.formatedAmount}
+                />
+              </div>
+            </div>
+            <div className="addOrCancelWrapper">
+              <Button
+                onButtonClickHandler={this.addBlockHandler}
+                label={"Add"}
+                disabled={this.state.buttonDisabled}
+              />
+
+              <Button
+                onButtonClickHandler={this.openOrCloseAddBlockModal}
+                label={"Cancel"}
+              />
+            </div>
           </div>
         </ModalDialog>
       </div>
