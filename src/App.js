@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import BlockChain from "./containers/blockChain/BlockChain";
+import CustomTable from "./containers/customTable/CustomTable";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-1">
-          <BlockChain />
+        <div className="table">
+          <CustomTable />
         </div>
       </div>
     );

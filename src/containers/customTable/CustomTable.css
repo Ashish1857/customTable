@@ -1,0 +1,14 @@
+.customTable{
+    display: block;
+    height: 100%;
+    width:90%;
+}
+.dollarSign{
+    display: inline-flex;
+}
+.textField{
+    display: inline-flex;
+}
+.textBox{
+    float:left;
+}

@@ -1,0 +1,469 @@
+.table-and-header-wrapper {
+  width: 100%;
+  position: relative;
+  left:50px
+}
+
+.table-and-header-wrapper .rt-noData {
+  display: none !important;
+}
+
+span [aria-label="Clear value"] {
+  display: none;
+}
+.ReactTable .rt-resizer {
+  display: none;
+}
+.rt-th.cellH01.rt-resizable-header .rt-resizer {
+  display: inline-block;
+}
+
+.table-and-header-wrapper .addNewRowButton {
+  width: 91px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  border: solid 1px #91a7b1;
+  outline-style: none;
+  padding: 0px;
+  position: relative;
+  float: left;
+  top: 25px;
+}
+
+.table-and-header-wrapper .addRowButton {
+  position: relative;
+  top: 111px;
+  left: 63px;
+}
+
+.table-and-header-wrapper .addNewRowButtonText {
+  width: auto;
+  height: 11px;
+  font-family: Graphik;
+  font-size: 11px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #91a7b1;
+  outline-style: none;
+}
+.table-and-header-wrapper .addNewButton {
+  position: relative;
+  top: -26px;
+  left: 18px;
+  margin-bottom: 20px;
+  fill: #91a7b1;
+  height: 12px;
+  width: 12px;
+  opacity: 0.75;
+}
+/* .ReactTable .rt-resizer {
+   
+    display: none;
+  } */
+
+.table-and-header-wrapper .ReactTable {
+  background-color: #ffffff;
+  position: relative;
+  width: 100%;
+}
+.table-and-header-wrapper .ReactTable .rt-tbody input{
+  height:18px!important;
+}
+.table-and-header-wrapper .ReactTable .rt-tbody input,
+.table-and-header-wrapper .ReactTable .rt-tbody textarea {
+  height: 100%;
+  width: 100% !important;
+  border: none;
+  text-align: left !important;
+  resize: none !important;
+  font-weight: 500;
+  background-color: #f9f9f9;
+  overflow: auto;
+  font-weight: 500;
+  font-family: Graphik;
+  color: rgb(45, 58, 75) !important;
+  font-size: 14px !important;
+}
+.table-and-header-wrapper .ReactTable .rt-tbody textarea {
+  padding: 0px;
+}
+.table-and-header-wrapper .ReactTable .rt-tbody .rt-td {
+  background-color: #f9f9f9;
+  /* border: solid 1px #c8d5db; */
+  font-family: Graphik !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.4px !important;
+  border: solid 0.5px #dce2e7;
+  text-align: left;
+  color: #2d3a4b !important;
+
+  min-height: 46px;
+  height: auto;
+  /* display: flex; */
+  padding: 6px;
+  padding-top: 11px;
+  
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.table-and-header-wrapper .ReactTable .rt-tr:hover .action {
+  transform: scale(1.3);
+}
+
+.table-and-header-wrapper .ReactTable .rt-tr:hover {
+  border-bottom-color: #42b4ee !important;
+  border-top-color: #42b4ee;
+  border-left-color: #42b4ee;
+  border-right-color: #42b4ee;
+}
+
+.table-and-header-wrapper .ReactTable .rt-tbody .rt-expandable {
+  max-width: 25px !important;
+  height: 46px;
+  background-color: #e3eaed;
+  border: solid 1px #c8d5db;
+}
+
+.table-and-header-wrapper .ReactTable .rt-thead {
+  background-color: #ffffff;
+}
+
+.table-and-header-wrapper .ReactTable .rt-thead .rt-th.-sort-desc,
+.ReactTable .rt-thead .rt-td.-sort-desc,
+.table-and-header-wrapper .ReactTable .rt-thead.-header,
+.table-and-header-wrapper .ReactTable .rt-thead .rt-th.-sort-asc,
+.ReactTable .rt-thead .rt-td.-sort-asc {
+  box-shadow: none !important;
+}
+
+.table-and-header-wrapper .ReactTable .rt-tbody {
+  overflow: visible !important;
+  background-color: #f9f9f9f9;
+}
+.table-and-header-wrapper .ReactTable .rt-table {
+  overflow: visible !important;
+}
+.table-and-header-wrapper .ReactTable .rt-th,
+.ReactTable .rt-td {
+  overflow: visible !important;
+}
+.table-and-header-wrapper .react-date-picker__button__input {
+  display: none;
+}
+
+.table-and-header-wrapper .dropArrowR .Select-arrow {
+  display: inline-block;
+}
+.table-and-header-wrapper .Select-menu-outer {
+  position: absolute;
+  z-index: 10000;
+  display: inline-table;
+  text-align: left;
+  width: 100%;
+}
+.ReactTable .rt-table {
+  overflow: auto !important;
+}
+
+.table-and-header-wrapper .ReactTable .rt-thead .rt-resizable-header-content {
+  height: auto;
+  padding: 8px;
+  min-height: 50px;
+  font-family: Graphik;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: -0.43px;
+  color: #52657f;
+  overflow: visible !important;
+  -o-text-overflow: initial !important;
+  text-overflow: initial !important;
+  width: 500px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+.table-and-header-wrapper .ReactTable .rt-th {
+  word-break: break-word;
+  white-space: pre-wrap;
+  margin: auto;
+  border: none;
+  text-align: center;
+}
+.table-and-header-wrapper .ReactTable .rt-thead .rt-tr {
+  top: 0px;
+}
+
+/* .table-and-header-wrapper .ReactTable .rt-tbody .rt-td div {
+  margin: auto;
+} */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .table-and-header-wrapper .ReactTable .rt-tbody .rt-td div {
+    margin: 0;
+  }
+
+  .table-and-header-wrapper .ReactTable .rt-thead .rt-th {
+    /* .table-and-header-wrapper .ReactTable .rt-thead .rt-td { */
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  .table-and-header-wrapper .ReactTable .rt-tbody .rt-td {
+    display: flex;
+    align-items: left;
+    word-break: break-all;
+    text-align: left;
+  }
+
+  .table-and-header-wrapper .ReactTable .rt-tbody .Select-multi-value-wrapper {
+    margin: auto !important;
+  }
+  .table-and-header-wrapper .ReactTable .rt-tbody .dateValue {
+    display: flex;
+    align-items: left;
+  }  
+}
+.table-and-header-wrapper .rt-tbody .rt-tr {
+  height: auto;
+}
+.table-and-header-wrapper .Select-control .Select-value {
+  overflow: hidden !important;
+  height: auto !important;
+  min-height: 10px;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  font-size: 12px !important;
+  padding: 0px;
+  color: #2d3a4b !important;
+  top: 0px !important;
+}
+.table-and-header-wrapper .Select-control .Select-value-label {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-weight: 500;
+  color: #2d3a4b !important;
+}
+.table-and-header-wrapper .Select--single > .Select-control .Select-value {
+  line-height: 1.3 !important;
+  top: 0px;
+}
+
+.table-and-header-wrapper .Select-control .Select-multi-value-wrapper {
+  display: table-cell;
+  vertical-align: top;
+  width: 90%;
+}
+
+.table-and-header-wrapper
+  .Select-control
+  .Select.has-value.is-clearable.is-focused.is-pseudo-focused.Select--single {
+  background-color: #f9f9f9f9;
+}
+
+.ReactTable.highlighted {
+  border: 2px solid rgb(213, 0, 47);
+}
+
+.table-and-header-wrapper
+  .ReactTable
+  .Select.is-focused:not(.is-open)
+  > .Select-control {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #f9f9f9;
+}
+
+.table-and-header-wrapper .ReactTable .parent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.table-and-header-wrapper
+  .Select.has-value.is-clearable.Select--single
+  > .Select-control
+  .Select-value {
+  padding-right: 6px;
+}
+.table-and-header-wrapper
+  .react-date-picker__clear-button.react-date-picker__button__icon {
+  display: none;
+}
+.table-and-header-wrapper .react-date-picker__button {
+  border: none;
+  cursor: pointer;
+}
+.table-and-header-wrapper .dateValueWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.table-and-header-wrapper
+  .ReactTable
+  .rt-tbody
+  .rt-tr-group
+  .Select
+  .Select-control {
+  overflow: visible;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  width: 100%;
+  text-align: left;
+}
+.table-and-header-wrapper .dateValue {
+  width: 100%;
+}
+.table-and-header-wrapper
+  .ReactTable
+  .rt-tbody
+  .rt-tr-group
+  .Select
+  .Select-control
+  .Select-input {
+  padding: 0;
+  display: none !important;
+}
+
+.table-and-header-wrapper .countLookUpShortContainer {
+  width: 100%;
+  display: flex;
+  height: 100%;
+}
+.table-and-header-wrapper .countContainer {
+  width: 30%;
+  height: 100%;
+}
+.table-and-header-wrapper .timeField {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-right: solid 1px #dce2e7 !important;
+  text-align: left;
+  height: 98% !important;
+}
+.table-and-header-wrapper .lookUpContainer {
+  width: 68%;
+}
+.table-and-header-wrapper .react-date-picker__calendar {
+  width: 285px;
+  max-width: 100vw;
+  position: absolute;
+  margin-top: 80% !important;
+  left: -260% !important;
+  z-index: 1;
+}
+.table-and-header-wrapper {
+  margin-top: 40px;
+}
+.table-and-header-wrapper .containerName {
+  font-family: Graphik;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #91a7b1;
+  position: relative;
+  margin-bottom: 11px;
+}
+.table-and-header-wrapper .react-date-picker__calendar-button svg g {
+  stroke: #91a7b1;
+  opacity: 0.8;
+}
+.tooltip-hidden {
+  height: 100%;
+  width: 100%;
+}
+.tooltip-hidden .tooltiptext {
+  display: none;
+}
+.tooltip-visible {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+.tooltip-visible .tooltiptext {
+  width: 100%;
+  height: 24px;
+  font-family: Graphik;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #52657f;
+  min-height: 0px;
+  background-color: #ffffff;
+  visibility: hidden;
+  padding: 5px;
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 1;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  -webkit-box-shadow: 0 7px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.3);
+
+  bottom: 100%;
+  top: -32px;
+}
+
+.tooltip-visible .tooltiptext::after {
+  content: "";
+  position: absolute;
+  left: 45%;
+  top: 90%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+.tooltip-visible:hover .tooltiptext {
+  visibility: visible;
+}
+.addNewRowIcon {
+  position: relative;
+  top: 32px;
+  left: 3px;
+  fill: #91a7b1;
+  height: 16px;
+  width: 16px;
+  opacity: 0.9;
+  z-index: 1;
+}
+.table-and-header-wrapper .Select-arrow-zone {
+  vertical-align: top;
+}
+
+.table-and-header-wrapper .Select-option.is-focused:hover {
+  background-color: #42b4ee !important;
+  color: #ffffff;
+}
+.table-and-header-wrapper .Select-option.is-focused {
+  background-color: #ffffff !important;
+  color: #666666;
+}
+
+.table-and-header-wrapper .Select-option.is-selected {
+  color: #666666;
+}
